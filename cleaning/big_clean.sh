@@ -19,12 +19,7 @@ cd $scratchDir
 ##and deletes that file
 rm `grep -lr "DELETE ME!" $tarName`
 
-pwd 
-ls
-echo $tarName
-
-
 ##last argument tarchive without tgz
 tar -zcf "cleaned_$tarchive" $tarName
 
-cp -R $scratchDir/. ./cleaned_$tarchive
+mv "cleaned_$tarchive" $here

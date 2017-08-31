@@ -8,18 +8,23 @@ scratchDir=$2
 
 here=$(pwd)
 
+tarName=$(echo $tarchive | cut -f 1 -d '.')
+
 ##Extracts contents from big_dir.tgz into scratchDir
 tar -xf $tarchive --directory $scratchDir
 
 cd $scratchDir
 
-tar -czf cleaned_$tarchive $here
-
 ##Finds all files in the scratchDir directory containing a "DELETE ME!" line
 ##and deletes that file
-rm `grep -lr "DELETE ME!" $scratchDir`
+rm `grep -lr "DELETE ME!" $tarName`
 
-##Create directory for cleaned tar fileis
-##`mkdir ./$scratchDir/cleaned_$tarchive`=cleanDir
+pwd 
+ls
+echo $tarName
+
+
+##last argument tarchive without tgz
+tar -zcf "cleaned_$tarchive" $tarName
 
 cp -R $scratchDir/. ./cleaned_$tarchive

@@ -9,7 +9,7 @@ firstNum=$1
 dirName=$2
 
 ##Extracts NthPrime.gtz to the give directory
-tar -xf NthPrime.tgz --$dirName
+tar -xf NthPrime.tgz --directory $dirName
 
 ##Compiles the NthPrime file to NthPrime directory and makes it executable
 gcc ./NthPrime/*.c -o ./NthPrime/NthPrime

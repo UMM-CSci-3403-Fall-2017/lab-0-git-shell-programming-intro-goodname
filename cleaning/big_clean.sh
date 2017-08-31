@@ -9,7 +9,9 @@ scratchDir=$2
 here=$(pwd)
 
 ##Extracts contents from big_dir.tgz into scratchDir
-tar -xf $tarchive --$scratchDir
+tar -xf $tarchive --directory $scratchDir
+
+cd $scratchDir
 
 tar -czf cleaned_$tarchive $here
 
@@ -17,9 +19,7 @@ tar -czf cleaned_$tarchive $here
 ##and deletes that file
 rm `grep -lr "DELETE ME!" $scratchDir`
 
-##Create directory for cleaned tar files
+##Create directory for cleaned tar fileis
 ##`mkdir ./$scratchDir/cleaned_$tarchive`=cleanDir
 
 cp -R $scratchDir/. ./cleaned_$tarchive
-
-
